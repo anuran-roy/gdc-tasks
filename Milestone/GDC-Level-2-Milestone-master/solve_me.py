@@ -149,6 +149,17 @@ $ python tasks.py report # Statistics"""
 
         pending: int = len(self.current_items)
         self.list_current_items = list(self.current_items.items())
+
+        while ("\n" in self.completed_items):
+            self.completed_items.remove("\n")
+
+        while ("" in self.completed_items):
+            self.completed_items.remove("")
+
+        while (" " in self.completed_items):
+            self.completed_items.remove(" ")
+
+
         completed: int = len(self.completed_items)
 
         print(f"Pending : {pending}")
